@@ -37,6 +37,8 @@ def export_output(output):
     filename = os.path.join(directory, f"output_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt")
     
     # Salva o conteúdo do output no arquivo
+    #o "with, as" garante que o arquivo vai ser aberto e fechado
+    #open vai abrir o arquivo como escrita e depois o output vai ser salvo como string (pra facilitar)
     with open(filename, "w") as file:
         file.write(str(output))
     
@@ -50,7 +52,7 @@ else:
     print("ENTRADA INVALIDA!")
     quit()
 
-#agora chamamos a função se nao ela nao vai ser usado
+#agora chamamos a função se nao ela nao vai ser usada
 
 resposta = gerador_senha(Len_senha = usuario_escolha)
 print(f"senha gerada:\n{resposta}")
